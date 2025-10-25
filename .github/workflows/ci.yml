@@ -470,17 +470,17 @@ jobs:
     - if: matrix.type == 'Release' && github.event_name == 'push'
       name: Packaging artifacts for nightly build
       run: |
-        FNAME="RenderDoc_macOS_"`git rev-parse HEAD`.zip
-        zip -r "${FNAME}" build/bin
-        ls -lh "${FNAME}"
+        FNAME="RenderDoc_macOS_arm.zip"
+        zip -r RenderDoc_macOS_arm.zip build/bin
+        ls -lh RenderDoc_macOS_arm.zip
         echo "FNAME=$FNAME" >> $GITHUB_ENV
 
     - if: matrix.type == 'Release' && github.event_name == 'push'
       name: Upload Artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: "mac${FNAME}"
-        path: "${FNAME}"      
+        name: "RenderDoc_macOS_arm"
+        path: "RenderDoc_macOS_arm.zip"      
         
   #  - if: matrix.type == 'Release' && github.event_name == 'push'
   #    name: Uploading artifacts for nightly build
