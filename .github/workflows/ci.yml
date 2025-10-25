@@ -5,6 +5,7 @@ on:
     branches:
       - v1.x
       - ci-test
+      - oscarbg-upload-mac-artifact
   pull_request:
     branches:
       - v1.x
